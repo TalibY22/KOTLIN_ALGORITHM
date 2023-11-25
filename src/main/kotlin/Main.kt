@@ -52,6 +52,49 @@ class algorithms() {
         }
         println("Number of odd numbers from 1 to $n: $sum")
     }
+
+    fun palindrome_alg(num:Any):Boolean{
+        //change input to string
+        var s_num =num.toString()
+        //Reverse the string
+        var reversed_string = s_num.reversed()
+         //Compare them
+        if(s_num==reversed_string){
+            print("True")
+        }
+        else{
+            println("False")
+        }
+       return s_num==reversed_string
+
+    }
+
+
+    fun insertion_sort(one:IntArray){
+         // get the lenght of the array
+         var x =one.size
+        for(i in 1 until x ){
+            var key = one[i]
+            var j = i - 1
+            while (j >= 0 && one[j] > key) {
+                one[j + 1] = one[j]
+                j--
+            }
+            one[j + 1] = key
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
 }
 
 
@@ -90,25 +133,6 @@ fun test(){
 
 
 
-class Calculator(){
-    fun addition(m:Int,n:Int){
-        println(m+n)
-    }
-
-    fun subtraction(m:Int,n:Int){
-        println(m-n)
-
-    }
-
-    fun multiplication(m:Int,n: Int){
-        println(m*n)
-    }
-
-    fun division(m:Int,n:Int){
-
-    }
-
-}
 
 
 
@@ -118,7 +142,7 @@ fun main(args: Array<String>) {
     println("Hello World!")
     var n = 11
     var m = 10
-    var c = Calculator()
+
     val alg = algorithms()
     //c.addition(n,m)
     //print(addition(m,n))
@@ -128,7 +152,7 @@ fun main(args: Array<String>) {
     //alg.sumOfEvenNumbers(n)
     //alg.odd_numbers(n)
     //test()
-    loop()
+    alg.palindrome_alg(123)
 
 
 
