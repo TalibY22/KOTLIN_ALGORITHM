@@ -89,13 +89,55 @@ class algorithms() {
     }
 
 
+    fun linear_search(value:Any){
+
+        var List = arrayListOf(1,3,4,2,5,6,7,8,9)
+
+
+        //Returns the list with the value and index
+        for ((index, i) in List.withIndex()){
+            if (i == value){
+
+                println("FOUND AT:$index")
+
+            }
+
+
+        }
+
+
+    }
 
 
 
+    fun binary_search(target: Int, list: IntArray): Int {
+        // set lowest index to 0
+        var low = 0
+        // set highest to len - 1
+        var high = list.size - 1
+
+        while (low <= high) {
+            val mid = (low + high) / 2
+            val mid_value = list[mid]
+
+            if (mid_value == target) {
+                return mid // Return the index where the target is found
+            } else if (mid_value < target) {
+                low = mid + 1 // Adjust the search range to the right half
+            } else {
+                high = mid - 1 // Adjust the search range to the left half
+            }
+        }
+
+        return -1
+    }
 
 
 
 }
+
+
+
 
 
 
@@ -141,7 +183,8 @@ fun test(){
 fun main(args: Array<String>) {
     println("Hello World!")
     var n = 11
-    var m = 10
+    var m = 2
+    var List = intArrayOf(1,2,3,4,5,6,7,8,9,10,11,12)
 
     val alg = algorithms()
     //c.addition(n,m)
@@ -152,8 +195,14 @@ fun main(args: Array<String>) {
     //alg.sumOfEvenNumbers(n)
     //alg.odd_numbers(n)
     //test()
-    alg.palindrome_alg(123)
+    //alg.palindrome_alg(123)
+    //alg.linear_search(5)
+   val result = alg.binary_search(2,List)
 
-
+    if (result != -1) {
+        println("Target  found at index $result.")
+    } else {
+        println("Target  not found in the list.")
+    }
 
 }
