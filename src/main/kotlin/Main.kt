@@ -53,27 +53,26 @@ class algorithms() {
         println("Number of odd numbers from 1 to $n: $sum")
     }
 
-    fun palindrome_alg(num:Any):Boolean{
+    fun palindrome_alg(num: Any): Boolean {
         //change input to string
-        var s_num =num.toString()
+        var s_num = num.toString()
         //Reverse the string
         var reversed_string = s_num.reversed()
-         //Compare them
-        if(s_num==reversed_string){
+        //Compare them
+        if (s_num == reversed_string) {
             print("True")
-        }
-        else{
+        } else {
             println("False")
         }
-       return s_num==reversed_string
+        return s_num == reversed_string
 
     }
 
 
-    fun insertion_sort(one:IntArray){
-         // get the lenght of the array
-         var x =one.size
-        for(i in 1 until x ){
+    fun insertion_sort(one: IntArray) {
+        // get the lenght of the array
+        var x = one.size
+        for (i in 1 until x) {
             var key = one[i]
             var j = i - 1
             while (j >= 0 && one[j] > key) {
@@ -85,18 +84,17 @@ class algorithms() {
         }
 
 
-
     }
 
 
-    fun linear_search(value:Any){
+    fun linear_search(value: Any) {
 
-        var List = arrayListOf(1,3,4,2,5,6,7,8,9)
+        var List = arrayListOf(1, 3, 4, 2, 5, 6, 7, 8, 9)
 
 
         //Returns the list with the value and index
-        for ((index, i) in List.withIndex()){
-            if (i == value){
+        for ((index, i) in List.withIndex()) {
+            if (i == value) {
 
                 println("FOUND AT:$index")
 
@@ -107,7 +105,6 @@ class algorithms() {
 
 
     }
-
 
 
     fun binary_search(target: Int, list: IntArray): Int {
@@ -133,76 +130,56 @@ class algorithms() {
     }
 
 
-
-}
-
-
-
-
-
-
-fun loop(){
-    var ne = 0
-    while(ne<3){
-        println("Booooo")
-        ne++
+    fun addBT(root: BinaryTreeNode<Int>?): Int {
+        // if the root is null return nothing
+        if (root == null) {
+            return 0
+        }
+        //else plus the root + right + left
+        return root.value + addBT(root.left) + addBT(root.right)
     }
-}
 
 
-
-
-
-
-
-
-
-fun test(){
-    var list = arrayListOf(2,2,4,5,7)
-    for (i in list){
-
+    fun loop() {
+        var ne = 0
+        while (ne < 3) {
+            println("Booooo")
+            ne++
+        }
     }
-}
 
 
+    fun test() {
+        var list = arrayListOf(2, 2, 4, 5, 7)
+        for (i in list) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fun main(args: Array<String>) {
-    println("Hello World!")
-    var n = 11
-    var m = 2
-    var List = intArrayOf(1,2,3,4,5,6,7,8,9,10,11,12)
-
-    val alg = algorithms()
-    //c.addition(n,m)
-    //print(addition(m,n))
-    //multiplication(m,n)
-    //subtraction(m,n)
-    //Nonsense_algorithm(1)
-    //alg.sumOfEvenNumbers(n)
-    //alg.odd_numbers(n)
-    //test()
-    //alg.palindrome_alg(123)
-    //alg.linear_search(5)
-   val result = alg.binary_search(2,List)
-
-    if (result != -1) {
-        println("Target  found at index $result.")
-    } else {
-        println("Target  not found in the list.")
+        }
     }
 
 }
+    fun main(args: Array<String>) {
+        println("Hello World!")
+        var n = 11
+        var m = 2
+        var List = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+
+        val alg = algorithms()
+        //c.addition(n,m)
+        //print(addition(m,n))
+        //multiplication(m,n)
+        //subtraction(m,n)
+        //Nonsense_algorithm(1)
+        //alg.sumOfEvenNumbers(n)
+        //alg.odd_numbers(n)
+        //test()
+        //alg.palindrome_alg(123)
+        //alg.linear_search(5)
+        val result = alg.binary_search(2, List)
+
+        if (result != -1) {
+            println("Target  found at index $result.")
+        } else {
+            println("Target  not found in the list.")
+        }
+
+    }
